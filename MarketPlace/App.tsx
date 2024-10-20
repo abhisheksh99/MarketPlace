@@ -1,20 +1,18 @@
+import React from 'react';
+import { Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { withExpoSnack } from 'nativewind';
+import LoginScreen from './apps/Screens/LoginScreen';
 
-export default function App() {
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <View className="flex-1 bg-white">
+      
       <StatusBar style="auto" />
+      <LoginScreen />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default withExpoSnack(App);
