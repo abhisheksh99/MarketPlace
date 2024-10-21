@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "marketplace-24735",
   storageBucket: "marketplace-24735.appspot.com",
   messagingSenderId: "410072416248",
-  appId: "1:410072416248:web:b95e6dfc3fce307733a00d"
+  appId: "1:410072416248:web:b95e6dfc3fce307733a00d",
 };
 
 // Initialize Firebase

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo';
-import { withExpoSnack } from 'nativewind';
-import LoginScreen from './apps/Screens/LoginScreen';
-import * as SecureStore from 'expo-secure-store';
+import React, { useEffect, useState } from "react";
+import { View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
+import { withExpoSnack } from "nativewind";
+import LoginScreen from "./apps/Screens/LoginScreen";
+import * as SecureStore from "expo-secure-store";
 import TabNavigation from "./apps/Navigations/TabNavigation";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 
 // SecureStore token management (token cache)
 const tokenCache = {
@@ -14,7 +14,7 @@ const tokenCache = {
     try {
       return await SecureStore.getItemAsync(key);
     } catch (err) {
-      console.error('Error retrieving token:', err);
+      console.error("Error retrieving token:", err);
       return null;
     }
   },
@@ -22,7 +22,7 @@ const tokenCache = {
     try {
       await SecureStore.setItemAsync(key, value);
     } catch (err) {
-      console.error('Error saving token:', err);
+      console.error("Error saving token:", err);
     }
   },
 };
@@ -35,7 +35,7 @@ function App() {
     const loadPublishableKey = async () => {
       const key = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
       if (!key) {
-        console.error('Missing Clerk publishable key');
+        console.error("Missing Clerk publishable key");
       } else {
         setPublishableKey(key);
       }

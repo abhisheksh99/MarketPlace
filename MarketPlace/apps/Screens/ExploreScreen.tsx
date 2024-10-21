@@ -1,10 +1,11 @@
+import { View, Text } from 'react-native'
 import React from 'react'
 
 const ExploreScreen = () => {
   return (
-    <div>
-      
-    </div>
+    <View>
+      <Text>ExploreScreen</Text>
+    </View>
   )
 }
 
