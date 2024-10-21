@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo';
 import { withExpoSnack } from 'nativewind';
 import LoginScreen from './apps/Screens/LoginScreen';
 import * as SecureStore from 'expo-secure-store';
-import { useEffect, useState } from 'react';
+import TabNavigation from "./apps/Navigations/TabNavigation";
+import { NavigationContainer } from '@react-navigation/native';
 
 // SecureStore token management (token cache)
 const tokenCache = {
@@ -52,24 +53,18 @@ function App() {
 
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <View className="flex-1 bg-white">
-        <StatusBar style="auto" />
-        <SignedIn>
-          <SignedInComponent />
-        </SignedIn>
-        <SignedOut>
-          <LoginScreen />
-        </SignedOut>
-      </View>
+      <NavigationContainer>
+        <View className="flex-1 bg-white">
+          <StatusBar style="auto" />
+          <SignedIn>
+            <TabNavigation />
+          </SignedIn>
+          <SignedOut>
+            <LoginScreen />
+          </SignedOut>
+        </View>
+      </NavigationContainer>
     </ClerkProvider>
-  );
-}
-
-function SignedInComponent() {
-  return (
-    <View className="flex-1 justify-center items-center">
-      <Text>Welcome! You are signed in!</Text>
-    </View>
   );
 }
 
